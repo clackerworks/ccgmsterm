@@ -206,7 +206,18 @@ f7chgk
 	jsr show_instructions
 	jmp handle_f7_config
 @no12:
+; Q: back to BASIC
+	cmp #'Q'
+	bne @no13
+	lda #$37
+	sta $01
+	lda #$fe
+	pha
+	lda #$65
+	pha
+	rts
 
+@no13:
 	cmp #CR
 	jne f7chos
 
